@@ -8,4 +8,8 @@ spring:
 eureka:
   client:
     service-url:
-      defaultZone: http://localhost:8761/eureka/ 
+      defaultZone: http://localhost:8761/eureka/
+
+test:
+  consumer:
+    message: "Hello from Consumer Service! - Updated by AI" 
