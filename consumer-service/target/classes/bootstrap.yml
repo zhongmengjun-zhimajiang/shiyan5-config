@@ -1,0 +1,27 @@
+    spring:
+      application:
+        name: consumer-service
+      cloud:
+        config:
+          discovery:
+            enabled: true
+            service-id: config-server
+          fail-fast: true
+      rabbitmq: # 添加此部分
+        host: localhost
+        port: 5672
+        username: guest
+        password: guest
+    server:
+      port: 8082
+    
+    management: # 添加此部分
+      endpoints:
+        web:
+          exposure:
+            include: "refresh,bus-refresh,shutdown,*" # 确保包含 refresh, bus-refresh, shutdown
+      endpoint:
+        bus-refresh:
+          enabled: true
+        refresh: # 确保添加 refresh 端点配置
+          access: unrestricted # 允许所有访问，包括 POST
